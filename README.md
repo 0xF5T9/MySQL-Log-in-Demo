@@ -10,7 +10,7 @@ Architecture: x64
 ## Set-up compile environment:
 Needs:
 - Visual Studio 2022 with C++ Compiler
-- Ready MySQL Server to connect/testing
+- Ready MySQL Server with database/table to connect/testing
 - MySQL Connector 8.0.2.8 dependencies | Windows (x86, 64-bit), ZIP Archive | (https://dev.mysql.com/downloads/connector/cpp/8.0.html)
 
 VS Project Configurations:
