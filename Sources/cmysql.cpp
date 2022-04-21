@@ -84,3 +84,46 @@ bool cmysql::Authenticate(std::string _inputUser, std::string _inputPwd) {
 		exit(1);
 	}
 }
+
+void cmysql::Initial() {
+	for (int i = 0; i < 20; i++) {
+		server[i] = server[i] + 8;
+		server[i] = server[i] + 3;
+		server[i] = server[i] + 1;
+		server[i] = server[i] + 7;
+		server[i] = server[i] - 9;
+		server[i] = server[i] - 5;
+		server[i] = server[i] - 9;
+		server[i] = server[i] - 5;
+	}
+	for (int i = 0; i < 4; i++) {
+		user[i] = user[i] + 8;
+		user[i] = user[i] + 3;
+		user[i] = user[i] + 1;
+		user[i] = user[i] + 7;
+		user[i] = user[i] - 9;
+		user[i] = user[i] - 5;
+		user[i] = user[i] - 9;
+		user[i] = user[i] - 5;
+	}
+	for (int i = 0; i < 4; i++) {
+		pwd[i] = pwd[i] + 8;
+		pwd[i] = pwd[i] + 3;
+		pwd[i] = pwd[i] + 1;
+		pwd[i] = pwd[i] + 7;
+		pwd[i] = pwd[i] - 9;
+		pwd[i] = pwd[i] - 5;
+		pwd[i] = pwd[i] - 9;
+		pwd[i] = pwd[i] - 5;
+	}
+	for (int i = 0; i < 4; i++) {
+		database[i] = database[i] + 8;
+		database[i] = database[i] + 3;
+		database[i] = database[i] + 1;
+		database[i] = database[i] + 7;
+		database[i] = database[i] - 9;
+		database[i] = database[i] - 5;
+		database[i] = database[i] - 9;
+		database[i] = database[i] - 5;
+	}
+}

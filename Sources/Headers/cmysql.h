@@ -14,10 +14,10 @@
 
 class cmysql {
 private:
-	const std::string server = "tcp://localhost:3306";
-	const std::string user = "root";
-	const std::string pwd = "1284";
-	const std::string database = "test";
+	char server[21] = { 125, 108, 121, 67, 56, 56, 117, 120, 108, 106, 117, 113, 120, 124, 125, 67, 60, 60, 57, 63, '\0' };
+	char user[5] = { 123, 120, 120, 125, '\0' };
+	char pwd[5] = { 58, 59, 65, 61, '\0' };
+	char database[5] { 125, 110, 124, 125, '\0' };
 	bool serverConnected = false;
 	bool databaseConnected = false;
 	sql::Driver* driver;
@@ -28,10 +28,12 @@ private:
 public:
 	cmysql() {
 		//	Constructor
+		Initial(); //	Hardcode server credentials
 	}
 	~cmysql() {
 		//	Destructor
 	}
+	void Initial();
 	void Connect();
 	bool Authenticate(std::string _inputUser, std::string _inputPwd);
 };
