@@ -80,6 +80,7 @@ bool cmysql::Authenticate(std::string _inputUser, std::string _inputPwd) {
 		}
 	}
 	catch (sql::SQLException e) {
+		{std::cout << "> "; animationCMySQLObj.DotAnimation(100); std::cout << std::endl; std::cout << "Connection lost." << std::endl; }
 		exit(1);
 	}
 }
