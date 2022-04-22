@@ -7,13 +7,14 @@ private:
 public:
 	menu() {
 		//	Constructor
+		/*	Declare global variables	*/
 		extern std::string TempID;
 		extern std::string TempUser;
 		extern std::string TempEmail;
-		/*	Load data from global variables when creating object	*/
-		_id = TempID;
-		_user = TempUser;
-		_email = TempEmail;
+		/*	Load data from global variables	*/
+		this->_id = TempID;
+		this->_user = TempUser;
+		this->_email = TempEmail;
 		/*	Set global variables to NULL	*/
 		TempID, TempUser, TempEmail = "";
 	}
