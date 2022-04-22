@@ -86,6 +86,7 @@ bool cmysql::Authenticate(std::string _inputUser, std::string _inputPwd) {
 }
 
 void cmysql::Initial() {
+	/*	A soft hardcode layer protect server credentials against casual hex reader.	*/
 	for (int i = 0; i < 20; i++) {
 		server[i] = server[i] + 8;
 		server[i] = server[i] + 3;
