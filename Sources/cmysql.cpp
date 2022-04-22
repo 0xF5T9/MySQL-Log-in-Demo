@@ -15,7 +15,7 @@
 
 animation animationCMySQLObj; //	Create object to use 'animation' class functions
 
-/*	Global Variables (For storing temporary data to transfer to another classes)	*/
+/*	Host Global Variables (To: menu.h)	*/
 std::string TempID;
 std::string TempUser;
 std::string TempEmail;

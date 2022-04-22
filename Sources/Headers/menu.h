@@ -1,22 +1,21 @@
 #pragma once
+
+/*	Get global variables (From: cmysql.cpp)	*/
+extern std::string TempID;
+extern std::string TempUser;
+extern std::string TempEmail;
+
 class menu {
 private:
 	std::string _id;
 	std::string _user;
 	std::string _email;
 public:
-	menu() {
+	menu() : _id(TempID), _user(TempUser), _email(TempEmail) {	/*	Load data from global variables on initial constructor	*/
 		//	Constructor
-		/*	Declare global variables	*/
-		extern std::string TempID;
-		extern std::string TempUser;
-		extern std::string TempEmail;
-		/*	Load data from global variables	*/
-		this->_id = TempID;
-		this->_user = TempUser;
-		this->_email = TempEmail;
+
 		/*	Set global variables to NULL	*/
-		TempID, TempUser, TempEmail = "";
+		TempID = "", TempUser = "", TempEmail = "";
 	}
 	~menu() {
 		//	Destructor
