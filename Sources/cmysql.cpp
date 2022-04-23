@@ -7,6 +7,7 @@
 #include "../Sources/Headers/cmysql.h"
 #include "../Sources/Headers/authenticate.h"
 #include "../Sources/Headers/animation.h"
+#include "../Sources/Headers/global.h"
 
 #include "mysql_connection.h"
 #include <cppconn/driver.h>
@@ -14,12 +15,6 @@
 #include <cppconn/prepared_statement.h>
 
 animation animationCMySQLObj; //	Create object to use 'animation' class functions
-
-/*	Host Global Variables (To: menu.h)	*/
-std::string TempID;
-std::string TempUser;
-std::string TempEmail;
-
 
 /*	Define 'cmysql' class functions	*/
 void cmysql::Connect() {
@@ -52,7 +47,7 @@ void cmysql::Connect() {
 	else exit(1);
 }
 
-bool cmysql::Authenticate(std::string _inputUser, std::string _inputPwd) {
+bool cmysql::Authenticate(std::string _inputUser, std::string _inputPwd, global& o) {	//*	Global Object: 3 statements used
 	try {
 		std::string createQuery;
 		createQuery = "SELECT * FROM account WHERE user=\"" + _inputUser + "\" AND pwd=\"" + _inputPwd + "\"";
@@ -60,14 +55,14 @@ bool cmysql::Authenticate(std::string _inputUser, std::string _inputPwd) {
 		result = pstmt->executeQuery();
 		if (result->next()) {
 
-			/*	Get datas to global variables upon success login	*/
+			/*	Get datas to global object upon success login	*/
 			std::string i[3];
 			i[0] = result->getString(1);
 			i[1] = result->getString(2);
 			i[2] = result->getString(4);
-			TempID = i[0];
-			TempUser = i[1];
-			TempEmail = i[2];
+			o.gID = i[0];	//*1
+			o.gUser = i[1];	//*2
+			o.gEmail = i[2];	//*3
 			{std::cout << "> "; animationCMySQLObj.DotAnimation(100); std::cout << std::endl; }
 			bool logon = true;
 			return logon;

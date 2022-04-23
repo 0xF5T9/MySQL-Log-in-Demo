@@ -152,6 +152,7 @@
     <ClCompile Include="Sources\animation.cpp" />
     <ClCompile Include="Sources\authenticate.cpp" />
     <ClCompile Include="Sources\cmysql.cpp" />
+    <ClCompile Include="Sources\global.cpp" />
     <ClCompile Include="Sources\main.cpp" />
     <ClCompile Include="Sources\menu.cpp" />
   </ItemGroup>
@@ -159,6 +160,7 @@
     <ClInclude Include="Sources\Headers\animation.h" />
     <ClInclude Include="Sources\Headers\authenticate.h" />
     <ClInclude Include="Sources\Headers\cmysql.h" />
+    <ClInclude Include="Sources\Headers\global.h" />
     <ClInclude Include="Sources\Headers\menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -6,6 +6,7 @@
 #include <string>
 #include "menu.h"
 #include "cmysql.h"
+#include "../Sources/Headers/global.h"
 
 #include "mysql_connection.h"
 #include <cppconn/driver.h>
@@ -35,6 +36,6 @@ public:
 	}
 	void Initial();
 	void Connect();
-	bool Authenticate(std::string _inputUser, std::string _inputPwd);
+	bool Authenticate(std::string _inputUser, std::string _inputPwd, global &o);
 };
 

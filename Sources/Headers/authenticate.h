@@ -1,4 +1,6 @@
 #pragma once
+#include "../Sources/Headers/global.h"
+
 class authenticate {
 private:
 
@@ -9,6 +11,6 @@ public:
 	~authenticate() {
 		//	Destructor
 	}
-	void login();
+	void login(global& o);
 };
 

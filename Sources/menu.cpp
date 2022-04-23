@@ -7,6 +7,7 @@
 #include "../Sources/Headers/cmysql.h"
 #include "../Sources/Headers/authenticate.h"
 #include "../Sources/Headers/animation.h"
+#include "../Sources/Headers/global.h"
 
 animation animationMenuObj;	//	Create object to use 'animation' class functions
 
