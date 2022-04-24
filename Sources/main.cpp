@@ -17,11 +17,11 @@ int main() {
 	SetConsoleOutputCP(65001);
 
 	/*	Authentication process	*/
-	{authenticate authenticateMainObj; authenticateMainObj.login(GlobalObject); }	//*	Passing Global Object to use in 'login' function
+	{authenticate authenticateMainObj(GlobalObject); authenticateMainObj.login(); }	//*	Passing Global Object to 'authenticate' class
 
 	/*	Start the program	*/
 	SetConsoleTitle(L"MySQL Log-in Demo");
-	menu menuMainObj(GlobalObject);
+	menu menuMainObj(GlobalObject); //*	Passing Global Object to 'menu' class
 	while (true) {
 		menuMainObj.ProcessOption(menuMainObj.SelectOption());
 	}

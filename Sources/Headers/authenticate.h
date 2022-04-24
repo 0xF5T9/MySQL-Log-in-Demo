@@ -3,14 +3,15 @@
 
 class authenticate {
 private:
-
+	global* GlobalObject;
 public:
-	authenticate() {
+	authenticate(global& GlobalObject) {
 		//	Constructor
+		this->GlobalObject = &GlobalObject;
 	}
 	~authenticate() {
 		//	Destructor
 	}
-	void login(global& o);
+	void login();
 };
 

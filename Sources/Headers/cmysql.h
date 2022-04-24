@@ -15,6 +15,7 @@
 
 class cmysql {
 private:
+	global* GlobalObject;
 	char server[21] = { 125, 108, 121, 67, 56, 56, 117, 120, 108, 106, 117, 113, 120, 124, 125, 67, 60, 60, 57, 63, '\0' };
 	char user[5] = { 123, 120, 120, 125, '\0' };
 	char pwd[5] = { 58, 59, 65, 61, '\0' };
@@ -27,8 +28,9 @@ private:
 	sql::PreparedStatement* pstmt;
 	sql::ResultSet* result;
 public:
-	cmysql() {
+	cmysql(global& GlobalObject) {
 		//	Constructor
+		this->GlobalObject = &GlobalObject;
 		Initial(); //	Hardcode server credentials
 	}
 	~cmysql() {
@@ -36,6 +38,6 @@ public:
 	}
 	void Initial();
 	void Connect();
-	bool Authenticate(std::string _inputUser, std::string _inputPwd, global &o);
+	bool Authenticate(std::string _inputUser, std::string _inputPwd);
 };
 

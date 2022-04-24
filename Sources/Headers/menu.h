@@ -6,14 +6,14 @@ private:
 	std::string _user;
 	std::string _email;
 public:
-	menu(global &o) {
+	menu(global &GlobalObject) {
 		//	Constructor
 
 		/*	Load datas from global object via constructor	*/
-		this->_id = o.gID;
-		this->_user = o.gUser;
-		this->_email = o.gEmail;
-		o.Clear();
+		this->_id = GlobalObject.gID;
+		this->_user = GlobalObject.gUser;
+		this->_email = GlobalObject.gEmail;
+		GlobalObject.Clear();
 	}
 	~menu() {
 		//	Destructor

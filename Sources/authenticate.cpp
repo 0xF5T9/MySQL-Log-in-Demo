@@ -14,10 +14,10 @@
 #include <cppconn/prepared_statement.h>
 
 /*	Define 'authenticate' class functions	*/
-void authenticate::login(global& o) {
+void authenticate::login() {
 	//- 1. Connect to MySQL Server & Database
 	SetConsoleTitle(L"Connecting...");
-	cmysql cmysqlAuthenticateObj; cmysqlAuthenticateObj.Connect();
+	cmysql cmysqlAuthenticateObj(*GlobalObject); cmysqlAuthenticateObj.Connect(); //*	Passing Global Object to 'cmysql' class
 
 	//- 2. Checking if the user & password is exists & matches.
 	SetConsoleTitle(L"Please log-in to continue");
@@ -28,7 +28,7 @@ void authenticate::login(global& o) {
 		std::getline(std::cin, inputUser);
 		std::cout << "Enter password: ";
 		std::getline(std::cin, inputPwd);
-		bool logon = cmysqlAuthenticateObj.Authenticate(inputUser, inputPwd, o); //*	Passing Global Object to use in 'Authenticate' function
+		bool logon = cmysqlAuthenticateObj.Authenticate(inputUser, inputPwd);
 		if (logon == true) break;
 	}
 	system("cls");

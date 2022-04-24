@@ -47,7 +47,7 @@ void cmysql::Connect() {
 	else exit(1);
 }
 
-bool cmysql::Authenticate(std::string _inputUser, std::string _inputPwd, global& o) {	//*	Global Object: 3 statements used
+bool cmysql::Authenticate(std::string _inputUser, std::string _inputPwd) {	//*	Global Object: 3 statements used
 	try {
 		std::string createQuery;
 		createQuery = "SELECT * FROM account WHERE user=\"" + _inputUser + "\" AND pwd=\"" + _inputPwd + "\"";
@@ -60,9 +60,9 @@ bool cmysql::Authenticate(std::string _inputUser, std::string _inputPwd, global&
 			i[0] = result->getString(1);
 			i[1] = result->getString(2);
 			i[2] = result->getString(4);
-			o.gID = i[0];	//*1
-			o.gUser = i[1];	//*2
-			o.gEmail = i[2];	//*3
+			this->GlobalObject->gID = i[0];
+			this->GlobalObject->gUser = i[1];
+			this->GlobalObject->gEmail = i[2];
 			{std::cout << "> "; animationCMySQLObj.DotAnimation(100); std::cout << std::endl; }
 			bool logon = true;
 			return logon;
