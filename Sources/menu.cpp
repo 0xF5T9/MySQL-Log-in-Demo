@@ -9,10 +9,10 @@
 #include "../Sources/Headers/animation.h"
 #include "../Sources/Headers/global.h"
 
-animation animationMenuObj;	//	Create object to use 'animation' class functions
+animation animMenuO;	//	Create object to use 'animation' class functions
 
 /*	Define 'menu' class functions	*/
-void menu::ShowMenu() {
+void menu::ShowMenu() const {
 	std::cout << "Welcome " << _user << "." << std::endl;
 	std::cout << "ID: " << _id << std::endl;
 	std::cout << "Email: " << _email << std::endl;
@@ -22,28 +22,28 @@ void menu::ShowMenu() {
 }
 
 int menu::SelectOption() {
-	int option;
+	int iOption;
 	bool ValidOption = false;
 	while (ValidOption == false) {
 		system("cls");
 		ShowMenu();
-		std::cout << "Select option: ";
-		std::cin >> option;
-		if (option > 0 && option < 2) {
+		std::cout << "Select Option: ";
+		std::cin >> iOption;
+		if (iOption > 0 && iOption < 2) {
 			ValidOption = true;
 		}
 		std::cin.clear();
 		std::cin.ignore(10000, '\n');
 	}
-	return option;
+	return iOption;
 }
 
-void menu::ProcessOption(int _option) {
-	switch (_option) {
+void menu::ProcessOption(int _Option) {
+	switch (_Option) {
 	case 1:
 		system("cls");
 		ShowMenu();
-		{std::cout << "> "; animationMenuObj.DotAnimation(100); }
+		{std::cout << "> "; animMenuO.DotAnimation(100); }
 		exit(0);
 		break;
 	default:

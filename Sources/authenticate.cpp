@@ -17,19 +17,20 @@
 void authenticate::login() {
 	//- 1. Connect to MySQL Server & Database
 	SetConsoleTitle(L"Connecting...");
-	cmysql cmysqlAuthenticateObj(*GlobalObject); cmysqlAuthenticateObj.Connect(); //*	Passing Global Object to 'cmysql' class
+	cmysql cmysqlAO(*GlobalObject);	//*1	Create cmysql object & passing Global Object to 'cmysql' class
+	cmysqlAO.Connect();
 
 	//- 2. Checking if the user & password is exists & matches.
 	SetConsoleTitle(L"Please log-in to continue");
 	while (true) {
 		system("cls");
-		std::string inputUser, inputPwd;
+		std::string iUser, iPwd;
 		std::cout << "Enter username: ";
-		std::getline(std::cin, inputUser);
+		std::getline(std::cin, iUser);
 		std::cout << "Enter password: ";
-		std::getline(std::cin, inputPwd);
-		bool logon = cmysqlAuthenticateObj.Authenticate(inputUser, inputPwd);
-		if (logon == true) break;
+		std::getline(std::cin, iPwd);
+		bool LogOn = cmysqlAO.Authenticate(iUser, iPwd);
+		if (LogOn == true) break;
 	}
 	system("cls");
 }

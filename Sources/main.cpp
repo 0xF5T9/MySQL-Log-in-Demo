@@ -12,18 +12,24 @@
 global GlobalObject;
 
 int main() {
-	/*	Initializing parameters	*/
+
+	/*	Initialize program parameters	*/
 	SetConsoleTitle(L"Initializing...");
-	SetConsoleOutputCP(65001);
+	SetConsoleOutputCP(65001);	//* UTF-8 Code Page Support
 
-	/*	Authentication process	*/
-	{authenticate authenticateMainObj(GlobalObject); authenticateMainObj.login(); }	//*	Passing Global Object to 'authenticate' class
+	
+	{	/*	Authentication process	*/
+		authenticate authMO(GlobalObject);	//*1	Create authenticate object & passing Global Object to 'authenticate' class
+		authMO.login();	//*2	Begin login process
+	}	
 
-	/*	Start the program	*/
-	SetConsoleTitle(L"MySQL Log-in Demo");
-	menu menuMainObj(GlobalObject); //*	Passing Global Object to 'menu' class
-	while (true) {
-		menuMainObj.ProcessOption(menuMainObj.SelectOption());
+
+	{	/*	Start the menu	*/
+		SetConsoleTitle(L"MySQL Log-in Demo");
+		menu menuMO(GlobalObject); //*	Passing Global Object to 'menu' class
+		while (true) {
+		menuMO.ProcessOption(menuMO.SelectOption());
+		}
 	}
 	return 0;
 }

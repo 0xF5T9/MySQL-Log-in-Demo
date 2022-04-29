@@ -31,13 +31,13 @@ public:
 	cmysql(global& GlobalObject) {
 		//	Constructor
 		this->GlobalObject = &GlobalObject;
-		Initial(); //	Hardcode server credentials
+		Initial(); //	Decode server credentials
 	}
 	~cmysql() {
 		//	Destructor
 	}
 	void Initial();
 	void Connect();
-	bool Authenticate(std::string _inputUser, std::string _inputPwd);
+	bool Authenticate(std::string _User, std::string _Pwd);
 };
 

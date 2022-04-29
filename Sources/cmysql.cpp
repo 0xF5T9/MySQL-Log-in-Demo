@@ -14,7 +14,7 @@
 #include <cppconn/exception.h>
 #include <cppconn/prepared_statement.h>
 
-animation animationCMySQLObj; //	Create object to use 'animation' class functions
+animation animCO; //	Create object to use 'animation' class functions
 
 /*	Define 'cmysql' class functions	*/
 void cmysql::Connect() {
@@ -47,10 +47,10 @@ void cmysql::Connect() {
 	else exit(1);
 }
 
-bool cmysql::Authenticate(std::string _inputUser, std::string _inputPwd) {	//*	Global Object: 3 statements used
+bool cmysql::Authenticate(std::string _User, std::string _Pwd) {	//*	Global Object: 3 statements used
 	try {
 		std::string createQuery;
-		createQuery = "SELECT * FROM account WHERE user=\"" + _inputUser + "\" AND pwd=\"" + _inputPwd + "\"";
+		createQuery = "SELECT * FROM account WHERE user=\"" + _User + "\" AND pwd=\"" + _Pwd + "\"";
 		pstmt = con->prepareStatement(createQuery);
 		result = pstmt->executeQuery();
 		if (result->next()) {
@@ -63,19 +63,19 @@ bool cmysql::Authenticate(std::string _inputUser, std::string _inputPwd) {	//*	G
 			this->GlobalObject->gID = i[0];
 			this->GlobalObject->gUser = i[1];
 			this->GlobalObject->gEmail = i[2];
-			{std::cout << "> "; animationCMySQLObj.DotAnimation(100); std::cout << std::endl; }
+			{std::cout << "> "; animCO.DotAnimation(100); std::cout << std::endl; }
 			bool logon = true;
 			return logon;
 		}
 		else {
-			{std::cout << "> "; animationCMySQLObj.DotAnimation(100); std::cout << std::endl; std::cout << "Login failed (Incorrect user or password)" << std::endl; }
+			{std::cout << "> "; animCO.DotAnimation(100); std::cout << std::endl; std::cout << "Login failed (Incorrect user or password)" << std::endl; }
 			bool logon = false;
 			system("pause");
 			return logon;
 		}
 	}
 	catch (sql::SQLException e) {
-		{std::cout << "> "; animationCMySQLObj.DotAnimation(100); std::cout << std::endl; std::cout << "Connection lost." << std::endl; }
+		{std::cout << "> "; animCO.DotAnimation(100); std::cout << std::endl; std::cout << "Connection lost." << std::endl; }
 		exit(1);
 	}
 }

@@ -18,8 +18,8 @@ public:
 	~menu() {
 		//	Destructor
 	}
-	void ShowMenu();
+	void ShowMenu() const;
 	int SelectOption();
-	void ProcessOption(int _option);
+	void ProcessOption(int _Option);
 };
 
