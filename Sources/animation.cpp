@@ -2,11 +2,10 @@
 #include <iostream>
 #include "../Sources/Headers/animation.h"
 
-
 /*	Define 'animation' class functions	*/
-void animation::DotAnimation(int milliseconds) {
+void animation::DotAnimation(int _milliseconds) {
 	for (int i = 0; i < 3; i++) {
-		Sleep(milliseconds);
+		Sleep(_milliseconds);
 		std::cout << ".";
 	}
 }

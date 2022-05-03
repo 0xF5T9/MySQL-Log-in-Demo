@@ -160,6 +160,7 @@
     <ClInclude Include="Sources\Headers\animation.h" />
     <ClInclude Include="Sources\Headers\authenticate.h" />
     <ClInclude Include="Sources\Headers\cmysql.h" />
+    <ClInclude Include="Sources\Headers\func.h" />
     <ClInclude Include="Sources\Headers\global.h" />
     <ClInclude Include="Sources\Headers\menu.h" />
   </ItemGroup>

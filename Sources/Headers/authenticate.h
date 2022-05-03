@@ -1,17 +1,30 @@
 #pragma once
 #include "../Sources/Headers/global.h"
+#include "../Sources/Headers/cmysql.h"
 
 class authenticate {
 private:
-	global* GlobalObject;
+
+	/*	Class Properties (Private)	*/
+	global* Global;
+	cmysql* CMySQL;
+
 public:
-	authenticate(global& GlobalObject) {
-		//	Constructor
-		this->GlobalObject = &GlobalObject;
+	authenticate() {	//	Constructor
+		
 	}
-	~authenticate() {
-		//	Destructor
+	authenticate(global* _Global, cmysql* _CMySQL) {	//	Constructor (w/ Global & CMySQL Object)
+		this->Global = _Global;
+		this->CMySQL = _CMySQL;
 	}
-	void login();
+	authenticate(const authenticate& _copy) {	//	Copy Constructor
+
+	}
+	~authenticate() {	//	Destructor
+		
+	}
+
+	/*	Class function prototypes	*/
+	void Login();
 };
 

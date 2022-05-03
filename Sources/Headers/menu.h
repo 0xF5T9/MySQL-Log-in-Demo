@@ -1,25 +1,36 @@
 #pragma once
 #include "../Sources/Headers/global.h"
+#include "../Sources/Headers/animation.h"
+
 class menu {
 private:
+
+	/*	Class Properties (Private)	*/
+	global* Global;
+	animation* Animation;
 	std::string _id;
 	std::string _user;
 	std::string _email;
-public:
-	menu(global &GlobalObject) {
-		//	Constructor
 
-		/*	Load datas from global object via constructor	*/
-		this->_id = GlobalObject.gID;
-		this->_user = GlobalObject.gUser;
-		this->_email = GlobalObject.gEmail;
-		GlobalObject.Clear();
+public:
+	menu() {	//	Constructor
+
 	}
-	~menu() {
-		//	Destructor
+	menu(global* _Global, animation* _Animation) {	//	Constructor
+		this->Global = _Global;
+		this->Animation = _Animation;
 	}
+	menu(const menu& _copy) {	//	Copy Constructor
+
+	}
+	~menu() {	//	Destructor
+		
+	}
+
+	/*	Class function prototypes	*/
+	void Initialize();
 	void ShowMenu() const;
 	int SelectOption();
-	void ProcessOption(int _Option);
+	bool ProcessOption(int _option);
 };
 

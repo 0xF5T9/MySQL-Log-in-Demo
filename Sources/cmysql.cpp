@@ -1,6 +1,5 @@
 #include <iostream>
 #include <Windows.h>
-#include <stdlib.h>
 #include <sstream>
 #include <string>
 #include "../Sources/Headers/menu.h"
@@ -13,8 +12,6 @@
 #include <cppconn/driver.h>
 #include <cppconn/exception.h>
 #include <cppconn/prepared_statement.h>
-
-animation animCO; //	Create object to use 'animation' class functions
 
 /*	Define 'cmysql' class functions	*/
 void cmysql::Connect() {
@@ -47,11 +44,11 @@ void cmysql::Connect() {
 	else exit(1);
 }
 
-bool cmysql::Authenticate(std::string _User, std::string _Pwd) {	//*	Global Object: 3 statements used
+bool cmysql::Authenticate(std::string _User, std::string _Pwd) {
 	try {
-		std::string createQuery;
-		createQuery = "SELECT * FROM account WHERE user=\"" + _User + "\" AND pwd=\"" + _Pwd + "\"";
-		pstmt = con->prepareStatement(createQuery);
+		std::string CreateQuery;
+		CreateQuery = "SELECT * FROM account WHERE user=\"" + _User + "\" AND pwd=\"" + _Pwd + "\"";
+		pstmt = con->prepareStatement(CreateQuery);
 		result = pstmt->executeQuery();
 		if (result->next()) {
 
@@ -60,27 +57,27 @@ bool cmysql::Authenticate(std::string _User, std::string _Pwd) {	//*	Global Obje
 			i[0] = result->getString(1);
 			i[1] = result->getString(2);
 			i[2] = result->getString(4);
-			this->GlobalObject->gID = i[0];
-			this->GlobalObject->gUser = i[1];
-			this->GlobalObject->gEmail = i[2];
-			{std::cout << "> "; animCO.DotAnimation(100); std::cout << std::endl; }
-			bool logon = true;
-			return logon;
+			this->Global->gID = i[0];
+			this->Global->gUser = i[1];
+			this->Global->gEmail = i[2];
+			{std::cout << "> "; Animation->DotAnimation(100); std::cout << std::endl; }
+			bool LogOn = true;
+			return LogOn;
 		}
 		else {
-			{std::cout << "> "; animCO.DotAnimation(100); std::cout << std::endl; std::cout << "Login failed (Incorrect user or password)" << std::endl; }
-			bool logon = false;
+			{std::cout << "> "; Animation->DotAnimation(100); std::cout << std::endl; std::cout << "Login failed (Incorrect user or password)" << std::endl; }
+			bool LogOn = false;
 			system("pause");
-			return logon;
+			return LogOn;
 		}
 	}
 	catch (sql::SQLException e) {
-		{std::cout << "> "; animCO.DotAnimation(100); std::cout << std::endl; std::cout << "Connection lost." << std::endl; }
+		{std::cout << "> "; Animation->DotAnimation(100); std::cout << std::endl; std::cout << "Connection lost." << std::endl; }
 		exit(1);
 	}
 }
 
-void cmysql::Initial() {
+void cmysql::Initialize() {
 	/*	A soft hardcode layer protect server credentials against casual hex reader.	*/
 	for (int i = 0; i < 20; i++) {
 		server[i] = server[i] + 8;

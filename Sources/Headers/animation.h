@@ -3,11 +3,16 @@ class animation {
 private:
 
 public:
-	animation() {
-		//	Constructor
+	animation() {	//	Constructor
+		
 	}
-	~animation() {
-		//	Destructor
+	animation(const animation& _copy) {	//	Copy Constructor
+
 	}
-	void DotAnimation(int milliseconds);
+	~animation() {	//	Destructor
+		
+	}
+
+	/*	Class function prototypes	*/
+	void DotAnimation(int _milliseconds);
 };

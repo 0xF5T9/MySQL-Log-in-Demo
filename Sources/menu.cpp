@@ -1,6 +1,5 @@
 ﻿#include <iostream>
 #include <Windows.h>
-#include <stdlib.h>
 #include <sstream>
 #include <string>
 #include "../Sources/Headers/menu.h"
@@ -9,9 +8,14 @@
 #include "../Sources/Headers/animation.h"
 #include "../Sources/Headers/global.h"
 
-animation animMenuO;	//	Create object to use 'animation' class functions
-
 /*	Define 'menu' class functions	*/
+void menu::Initialize() {
+	this->_id = Global->gID;
+	this->_user = Global->gUser;
+	this->_email = Global->gEmail;
+	Global->Clear();
+}
+
 void menu::ShowMenu() const {
 	std::cout << "Welcome " << _user << "." << std::endl;
 	std::cout << "ID: " << _id << std::endl;
@@ -38,15 +42,18 @@ int menu::SelectOption() {
 	return iOption;
 }
 
-void menu::ProcessOption(int _Option) {
-	switch (_Option) {
+bool menu::ProcessOption(int _option) {
+	bool EXITPROGRAM = false;
+	switch (_option) {
 	case 1:
 		system("cls");
 		ShowMenu();
-		{std::cout << "> "; animMenuO.DotAnimation(100); }
-		exit(0);
+		{std::cout << "> "; Animation->DotAnimation(100); }
+		system("cls");
+		EXITPROGRAM = true;
 		break;
 	default:
 		break;
 	}
+	return EXITPROGRAM;
 }
