@@ -10,9 +10,9 @@
 
 /*	Define 'menu' class functions	*/
 void menu::Initialize() {
-	this->_id = Global->gID;
-	this->_user = Global->gUser;
-	this->_email = Global->gEmail;
+	this->_id = Global->GetValue("gID");
+	this->_user = Global->GetValue("gUser");
+	this->_email = Global->GetValue("gEmail");
 	Global->Clear();
 }
 

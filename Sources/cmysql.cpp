@@ -57,9 +57,9 @@ bool cmysql::Authenticate(std::string _User, std::string _Pwd) {
 			i[0] = result->getString(1);
 			i[1] = result->getString(2);
 			i[2] = result->getString(4);
-			this->Global->gID = i[0];
-			this->Global->gUser = i[1];
-			this->Global->gEmail = i[2];
+			Global->SetValue(i[0], "gID");
+			Global->SetValue(i[1], "gUser");
+			Global->SetValue(i[2], "gEmail");
 			{std::cout << "> "; Animation->DotAnimation(100); std::cout << std::endl; }
 			bool LogOn = true;
 			return LogOn;
