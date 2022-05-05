@@ -5,9 +5,13 @@
 class menu {
 private:
 
-	/*	Class Properties (Private)	*/
+	/*	Declare Object Pointers	*/
 	global* Global;
 	animation* Animation;
+
+private:
+
+	/*	Class Properties (Private)	*/
 	std::string _id;
 	std::string _user;
 	std::string _email;

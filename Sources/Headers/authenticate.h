@@ -5,7 +5,7 @@
 class authenticate {
 private:
 
-	/*	Class Properties (Private)	*/
+	/*	Declare Object Pointers	*/
 	global* Global;
 	cmysql* CMySQL;
 
